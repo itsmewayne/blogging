@@ -2,8 +2,8 @@ spring:
   application:
     name: Blogging
   datasource:
-    username: root
-    password: root
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     url: jdbc:postgresql://localhost:5432/blog_db
     driver-class-name: org.postgresql.Driver
   data:
