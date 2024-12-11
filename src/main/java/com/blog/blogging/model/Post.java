@@ -1,12 +1,10 @@
 package com.blog.blogging.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity
@@ -20,7 +18,8 @@ public class Post {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Post() {
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Comment> comments;    public Post() {
     }
 
     public Post(Long id, String title, String content, Long authorId, LocalDateTime createdAt, LocalDateTime updatedAt) {
